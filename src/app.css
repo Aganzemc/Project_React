@@ -17,7 +17,7 @@
 /* Style the heading and subheading */
 
 /* Couleurs du thème */
-:root {
+.root {
   --primary-color: #4c51bf;
   --secondary-color: #4caf50;
   --tertiary-color: #ff9f43;
