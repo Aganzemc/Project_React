@@ -1,0 +1,17 @@
+/* App.css */
+/* Include Tailwind CSS Styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Styles */
+/* Adjust sidebar width */
+/* Add margin to the right of the sidebar */
+/* Make the content scrollable */
+/* Adjust padding and font styles for better readability */
+/* Style the navigation links */
+/* Add hover effect to navigation links */
+/* Style the main content */
+/* Add padding to the main content */
+/* Add border at the bottom of the main content */
+/* Style the heading and subheading */
