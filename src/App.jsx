@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { FaGithub, FaInstagram, FaGoogle, FaFacebook  } from 'react-icons/fa';
 import { Menu, X, Home, ShoppingCart, BarChart, Settings, Sun, Moon } from 'react-feather'; // Importer les icônes de Feather Icons
 import { Line } from 'react-chartjs-2'; // Importer le composant de graphique de lignes de Chart.js
 import './app.css';
+import { FaBullseye } from 'react-icons/fa6';
 // import './charts.jsx'
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // État pour le mode sombre
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true); // État pour le mode sombre
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -24,20 +26,20 @@ function App() {
         <nav>
           <ul className="mt-6">
             <li className="flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-700">
-              <Home className="mr-2" />
-              Home
+              {isSidebarOpen ? <Home className="mr-2" /> : <Home className="mr-2 opacity-0" />}
+              <span>{isSidebarOpen && 'Home'}</span>
             </li>
             <li className="flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-700">
-              <ShoppingCart className="mr-2" />
-              Orders
+              {isSidebarOpen ? <ShoppingCart className="mr-2" /> : <ShoppingCart className="mr-2 opacity-0" />}
+              <span>{isSidebarOpen && 'Orders'}</span>
             </li>
             <li className="flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-700">
-              <BarChart className="mr-2" />
-              Reports
+              {isSidebarOpen ? <BarChart className="mr-2" /> : <BarChart className="mr-2 opacity-0" />}
+              <span>{isSidebarOpen && 'Reports'}</span>
             </li>
             <li className="flex items-center px-4 py-2 text-sm cursor-pointer hover:bg-gray-700">
-              <Settings className="mr-2" />
-              Settings
+              {isSidebarOpen ? <Settings className="mr-2" /> : <Settings className="mr-2 opacity-0" />}
+              <span>{isSidebarOpen && 'Settings'}</span>
             </li>
           </ul>
         </nav>
@@ -52,11 +54,18 @@ function App() {
             <span className="ml-2">{isSidebarOpen ? 'Fermer la barre latérale' : 'Ouvrir la barre latérale'}</span>
           </button>
           <h1 className="text-xl font-bold">React Admin Dashboard</h1>
-          {/* Bouton pour changer entre le mode sombre et le mode lumière */}
-          <button className="text-gray-500 focus:outline-none" onClick={toggleDarkMode}>
-            {isDarkMode ? <Sun /> : <Moon />}
-            <span className="ml-2">{isDarkMode ? 'Mode Lumière' : 'Mode Sombre'}</span>
-          </button>
+          <div className="flex justify-end items-center">
+            <FaGithub className={`ml-6 hover:text-gray-700 cursor-pointer ${isDarkMode ? 'h-6 w-6' : 'h-6 w-6'}`} />
+            <FaFacebook  className={`ml-6 text-blue-700 hover:text-gray-700 cursor-pointer ${isDarkMode ? 'h-6 w-6' : 'h-6 w-6'}`} />
+            <FaInstagram className={`ml-6 text-red-200 hover:text-gray-700 cursor-pointer ${isDarkMode ? 'h-6 w-6' : 'h-6 w-6'}`} />
+
+
+            <button className="ml-6 text-gray-500 focus:outline-none" onClick={toggleDarkMode}>
+              {isDarkMode ? <Sun /> : <Moon />}
+              {/* <span className="ml-2">{isDarkMode ? 'Mode Lumière' : 'Mode Sombre'}</span> */}
+            </button>
+          </div>
+
         </div>
         {/* Dashboard Content */}
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
