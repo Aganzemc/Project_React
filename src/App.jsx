@@ -80,9 +80,11 @@ function App() {
                 </div>
               )}
             </div>
-            <button className="ml-6 text-gray-500 focus:outline-none" onClick={toggleDarkMode}>
+           
+            <button onClick={toggleDarkMode} className="ml-6 text-blue-500 dark:text-blue-300 flex items-center space-x-2">
               {isDarkMode ? <Sun /> : <Moon />}
-            </button>
+              <span>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
+          </button>
           </div>
         </div>
         {/* Dashboard Content */}
